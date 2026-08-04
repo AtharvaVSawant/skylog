@@ -1,0 +1,5 @@
+.env
+venv/
+__pycache__/
+*.pyc
+weather_data.db
