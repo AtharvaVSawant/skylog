@@ -1,0 +1,39 @@
+name: SkyLog — Hourly Weather Pull
+
+on:
+  schedule:
+    # Runs at minute 0 of every hour (UTC time, GitHub Actions cron is always UTC)
+    - cron: '0 * * * *'
+  workflow_dispatch:  # lets you trigger it manually from the Actions tab too
+
+permissions:
+  contents: write  # needed so the workflow can commit weather_data.db back
+
+jobs:
+  pull-weather:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
+        run: uv pip install -r requirements.txt --system
+
+      - name: Run weather pull
+        env:
+          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
+        run: uv run --no-sync weather_pull.py
+
+      - name: Commit updated database
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add weather_data.db
+          git diff --staged --quiet || git commit -m "SkyLog: automated pull $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
