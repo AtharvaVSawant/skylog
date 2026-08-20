@@ -13,7 +13,7 @@ database, and Power BI visualizes the growing historical dataset —
 current conditions, temperature trends, hot/cold comparisons, weather
 condition breakdown, and a color-coded city map. A GitHub Actions
 workflow runs the pull automatically every hour, so the dataset keeps
-growing with zero manual intervention on the data-collection side.
+growing with zero manual intervention on the data-collection side. 
 
 ![SkyLog Dashboard Overview](https://raw.githubusercontent.com/AtharvaVSawant/skylog/main/images/SkyLog%20Dashboard.png)
 
