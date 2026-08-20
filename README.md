@@ -15,7 +15,7 @@ condition breakdown, and a color-coded city map. A GitHub Actions
 workflow runs the pull automatically every hour, so the dataset keeps
 growing with zero manual intervention on the data-collection side.
 
-![Dashboard Overview][(images/SkyLog Dashboard.png)](https://github.com/AtharvaVSawant/skylog/blob/main/images/SkyLog%20Dashboard.png)
+![SkyLog Dashboard Overview](https://raw.githubusercontent.com/AtharvaVSawant/skylog/main/images/SkyLog%20Dashboard.png)
 
 ## 🔑 Key Metrics
 
