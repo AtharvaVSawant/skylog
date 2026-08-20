@@ -58,7 +58,6 @@ skylog/
 ├── weather_scheduler.py       # optional local loop (demo/manual use)
 ├── weather_data.db            # SQLite database (committed by the Action)
 ├── requirements.txt
-├── .env.example
 └── README.md
 ```
 
